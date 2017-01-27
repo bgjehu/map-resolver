@@ -4,7 +4,7 @@
 [![NPM Downloads][downloads-image]][npmjs-url]
 [![Node.js Version][node-version-image]][node-version-url]
 [![Build Status][travis-image]][travis-url]
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/895ba3cda0954f019f1b6e85af51dd8a)](https://www.codacy.com/app/bgjehu/map-resolver?utm_source=github.com&utm_medium=referral&utm_content=bgjehu/map-resolver&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/8e7d0525320c412f98bf2de06b460c99)](https://www.codacy.com/app/bgjehu/map-resolver?utm_source=github.com&utm_medium=referral&utm_content=bgjehu/map-resolver&utm_campaign=Badge_Coverage)
 
 Screen `req.cookies` with `whitelist`, `blacklist`, and `interface` mode
 
