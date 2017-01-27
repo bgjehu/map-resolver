@@ -40,6 +40,7 @@ const mapResolver = (map) => {
     return (flag, id, chain = true) => {
 
         var f, _id, _flag;
+        flag += ''; //  turn to string
         for (f in map) {
             if (flag === f || flag.indexOf(f) === 0) {
                 //  resolve flag by itself
@@ -55,8 +56,8 @@ const mapResolver = (map) => {
         if (_.isObject(src) || _.isArray(src)) {
             if (chain) {
                 return _.isString(_id) ? _.reduce(_id.split('.'), (a, b) => {
-                    return (a || {})[b];
-                }, src) : undefined;
+                        return (a || {})[b];
+                    }, src) : undefined;
             } else {
                 return src[_id];
             }
