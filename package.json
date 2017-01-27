@@ -1,0 +1,37 @@
+{
+  "name": "map-resolver",
+  "description": "Let you pass a map and return a resolver to resolve for value later",
+  "version": "1.0.0",
+  "author": "Jay Hu <bgjehu@me.com>",
+  "license": "MIT",
+  "repository": "bgjehu/map-resolver",
+  "keywords": [
+    "map",
+    "resolve"
+  ],
+  "dependencies": {
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "codacy-coverage": "2.0.1",
+    "eslint": "3.14.1",
+    "istanbul": "0.4.5",
+    "mocha": "3.2.0",
+    "mocha-lcov-reporter": "1.2.0"
+  },
+  "files": [
+    "LICENSE",
+    "HISTORY.md",
+    "index.js"
+  ],
+  "engines": {
+    "node": ">= 6.9.4"
+  },
+  "scripts": {
+    "lint": "eslint *.js ./**/*.js",
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "test-cov": "istanbul cover _mocha -- --reporter spec --check-leaks test/",
+    "test-travis": "istanbul cover _mocha --report lcovonly -- --reporter spec --check-leaks test/ && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage"
+  }
+}
