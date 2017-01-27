@@ -56,8 +56,8 @@ const mapResolver = (map) => {
         if (_.isObject(src) || _.isArray(src)) {
             if (chain) {
                 return _.isString(_id) ? _.reduce(_id.split('.'), (a, b) => {
-                        return (a || {})[b];
-                    }, src) : undefined;
+                    return (a || {})[b];
+                }, src) : undefined;
             } else {
                 return src[_id];
             }
