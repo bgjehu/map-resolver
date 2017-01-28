@@ -32,14 +32,14 @@ const sid = resolve('?session.id');    //  sid = req.query.session.id
 ```
 
 ### mapResolver(map)
-- `map` should be an `object`
+- `map` must be an filled `object`
 - `key` should be a `string`, used as a flag, tells `resolver` which `function` to call
-- `value` should be a `function` that returns an `object` or `array`
+- `value` must be a `function` that returns an `object`, `array` or `undefined`
 - return `resolver: (string[, string]) => any` A `function` you call to resolve with flag and id for value. 
 #### resolver(flag[, id][, useDotNotation = true])
-- `flag` should be a `string` and matches flags in the `map`
-- `id` should be a `string` tells resolver what to resolve
-- `useDotNotation` should be a boolean indicates if id should be treat as dot notation
+- `flag` must be a `string` and matches flags in the `map`
+- `id` is an optional `string` tells resolver what to resolve
+- `useDotNotation` is an optional `boolean` indicates if id should be treat as dot notation
 
 ## Example
 

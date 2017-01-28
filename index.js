@@ -26,21 +26,30 @@ const mapResolver = (map) => {
     //  check map object
     const fns = _.values(map);
     if (!_.isObject(map)) {
-        throw new Error('Map must be an object');
+        throw new TypeError('Map must be an object');
     }
     if (fns.length === 0) {
-        throw new Error('Map must be a filled object');
+        throw new TypeError('Map must be a filled object');
     }
     _.forEach(fns, (to) => {
         if (!_.isFunction(to)) {
-            throw new Error('Map must be an instance of Object<string, func>');
+            throw new TypeError('Map must be an instance of Object<string, func>');
+        } else {
+            const deRef = to();
+            if (!_.isArray(deRef) && !_.isObject(deRef) && !_.isUndefined(deRef)) {
+                throw new Error('The returned object of reference should only be either `object`, `array` or `undefined`');
+            }
         }
     });
 
     return (flag, id, chain = true) => {
-
+        
+        if (!_.isString(flag)) {
+            throw new TypeError('Flag must be a string');
+        }
+        
         var f, _id, _flag;
-        flag += ''; //  turn to string
+
         for (f in map) {
             if (flag === f || flag.indexOf(f) === 0) {
                 //  resolve flag by itself

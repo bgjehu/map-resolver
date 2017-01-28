@@ -20,6 +20,21 @@ describe('mapResolver', function () {
         expect(() => mapResolver({'@': req.body})).to.throw('Map must be an instance of Object<string, func>');
     });
 
+    it('should throw error if returned object of referencing function is neither `object`, `array` or `undefined`', function () {
+        const req = {
+            body: 'str'
+        };
+        expect(() => mapResolver({'@': ()=>req.body})).to.throw('The returned object of reference should only be either `object`, `array` or `undefined`');
+    });
+
+    it('should throw error if non-string passed to resolver as a flag', function () {
+        const req = {
+            body: {}
+        };
+        resolve = mapResolver({'@': ()=>req.body});
+        expect(()=>resolve(1.2)).to.throw('Flag must be a string');
+    });
+
 
     it('should resolve value properly', function () {
         const req = {
