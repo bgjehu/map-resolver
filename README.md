@@ -45,31 +45,45 @@ const sid = resolve('?session.id');    //  sid = req.query.session.id
 ## Example
 
 ```js
-process.env.YEAR = '2017';
-const req = {
-    query: {
-        session: {
-            id: '123'
-        }
-    },
-    params: ['express', 'middleware'],
-    body: {
-        'stats.counter.pagehit': '3'
-    }
-};
 const mapResolver = require('map-resolver');
+
+var req = {};
+const constants = {
+    'maxThread': 3
+};
+
 const map = {
     '...': () => req.body,
     ':': () => req.params,
     '?': () => req.query,
     '*': () => process.env,
-    '#': () => req.cookies
+    '#': () => req.cookies,
+    '定': () => constants,
 };
+
 const resolve = mapResolver(map);
-const id = resolve('#', 'id');    //  id = undefined;
-const folderName = resolve(':1');    //  id = 'middleware'
-const sid = resolve('?session.id');    //  sid = '123'
-const pagehit = resolve('...stats.counter.pagehit');    //  pagehit = '3'
+
+
+req = {
+    body: {
+        'app.name': 'MP'
+    },
+    params: ['express', 'middleware'],
+    query: {
+        session: {
+            id: '123'
+        }
+    }
+};
+
+process.env.YEAR = '2017';
+
+console.log(resolve('...app.name', null, false));   //  'MP'
+console.log(resolve(':1'));                         //  middleware
+console.log(resolve('?session.id', null, true));    //  '123'
+console.log(resolve('*', 'YEAR'));                  //  '2017'
+console.log(resolve('#', 'id'));                    //  undefined;
+console.log(resolve('定maxThread'));                //  3
 ```
 
 ### [MIT Licensed](LICENSE)

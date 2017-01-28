@@ -1,7 +1,7 @@
 {
   "name": "map-resolver",
   "description": "Let you pass a map and return a resolver to resolve for value later",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Jay Hu <bgjehu@me.com>",
   "license": "MIT",
   "repository": "bgjehu/map-resolver",
