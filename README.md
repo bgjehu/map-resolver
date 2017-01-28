@@ -36,6 +36,7 @@ const sid = resolve('?session.id');    //  sid = req.query.session.id
 - `key` should be a `string`, used as a flag, tells `resolver` which `function` to call
 - `value` must be a `function` that returns an `object`, `array` or `undefined`
 - return `resolver: (string[, string]) => any` A `function` you call to resolve with flag and id for value. 
+
 #### resolver(flag[, id][, useDotNotation = true])
 - `flag` must be a `string` and matches flags in the `map`
 - `id` is an optional `string` tells resolver what to resolve
